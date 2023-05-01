@@ -89,3 +89,53 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.menu ul {
+    display: flex;
+    align-items: center;
+}
+
+.menu ul li:first-child{margin-left: 0;}
+.menu ul li {
+    margin-left: 50px;
+    list-style: none;
+}
+
+.menu ul li a{
+    font-size: 21px;
+    text-decoration: none;
+}
+
+.about-us{
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    color: #fff;
+    font-size: 21px;
+}
+
+.vision{
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    text-align: center;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    color: #fff;
+    font-size: 21px;
+}
+
+footer{
+    position: relative;
+}
+
+footer::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    width: 1px;
+    height: 100px;
+}
