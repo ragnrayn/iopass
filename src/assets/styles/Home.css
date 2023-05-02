@@ -11,7 +11,7 @@
     position: relative;
 }
 
-.hero::before{
+.animation-scene-left-line{
     content: "";
     width: 150px;
     height: 1px;
@@ -19,9 +19,10 @@
     position: absolute;
     top: 50%;
     transform: translateX(-50%);
+    animation: leftLine 1.5s 1 alternate;
 }
 
-.hero::after{
+.animation-scene-right-line{
     content: "";
     width: 150px;
     height: 1px;
@@ -29,6 +30,27 @@
     position: absolute;
     top: 50%;
     left: 95%;
+    transform: translateX(-50%);
+    animation: rightLine 1.5s 1 alternate;
+}
+
+.animation-line-first{
+    width: 150px;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translateX(-50%);
+}
+
+
+.animation-line-second{
+    width: 150px;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
     transform: translateX(-50%);
 }
 
@@ -204,5 +226,23 @@ footer::before{
     }
     to {
         bottom: 0%;
+    }
+}
+
+@keyframes leftLine {
+    from {
+        left: 50%
+    }
+    to{
+        left: 50px;
+    }
+}
+
+@keyframes rightLine {
+    from {
+        left: 50%;
+    }
+    to{
+        left: 95%;
     }
 }

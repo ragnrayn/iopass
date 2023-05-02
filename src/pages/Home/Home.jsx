@@ -8,11 +8,15 @@ function Home() {
     const [menuWidth, setMenuWidth] = useState({ first: { width: '' }, second: { width: "" }, third: { width: "" } });
     const topBar = useRef(null);
     const bottomBar = useRef(null);
+    const lineLeft = useRef(null);
+    const lineRight = useRef(null);
 
 
     const menuAnimation = () => {
         let topAnimation = topBar.current;
         let bottomAnimation = bottomBar.current;
+        let leftAnimation = lineLeft.current;
+        let rightAnimation = lineRight.current;
 
         setTimeout(() => {
             topAnimation.classList.add("black-bar__top");
@@ -20,9 +24,19 @@ function Home() {
         }, 0)
 
         setTimeout(() => {
+            leftAnimation.classList.add("animation-scene-left-line");
+            rightAnimation.classList.add("animation-scene-right-line");
+        }, 2000)
+
+        setTimeout(() => {
             topAnimation.classList.remove("black-bar__top");
             bottomAnimation.classList.remove("black-bar__bottom");
         }, 3000)
+
+        setTimeout(() => {
+            leftAnimation.classList.remove("animation-scene-left-line");
+            rightAnimation.classList.remove("animation-scene-right-line"); 
+        }, 5000)
     }
 
 
@@ -121,6 +135,8 @@ function Home() {
             <div className="hero">
                 <div className="animation-scene-top" ref={topBar}></div>
                 <div className="animation-scene-bottom" ref={bottomBar}></div>
+                <div className="animation-line-first" ref={lineLeft}></div>
+                <div className="animation-line-second" ref={lineRight}></div>
                 <header className="hero-header">
                     <div className="header-logo">
                         <a href="" onClick={() => toggleMenu('main')}>
