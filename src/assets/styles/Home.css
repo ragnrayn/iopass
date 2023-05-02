@@ -167,12 +167,42 @@ footer::before{
     font-size: 30px;
 }
 
-/* .black-bar__top{
+.black-bar__top{
     position: absolute;
-    top: 0;
+    top: 100%;
     left: 0;
     width: 100%;
-    height:100px;
-    background: red;
+    height: 50%;
+    background: #282828;
     z-index: 10;
-} */
+    animation: barTop 1.5s 2 alternate;
+}
+
+.black-bar__bottom {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #282828;
+    z-index: 10;
+    animation: barBottom 1.5s 2 alternate;
+}
+
+@keyframes barTop {
+    from{
+        top: -100%
+    }
+    to{
+        top: 0;
+    }
+}
+
+@keyframes barBottom {
+    from {
+        bottom: -100%;
+    }
+    to {
+        bottom: 0%;
+    }
+}

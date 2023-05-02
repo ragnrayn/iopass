@@ -1,14 +1,47 @@
 import "../../assets/styles/Home.css"
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import headerLogo from "../../assets/icons/iopass_header.svg";
 
 function Home() {
 
     const [page, setPage] = useState('main');
     const [menuWidth, setMenuWidth] = useState({ first: { width: '' }, second: { width: "" }, third: { width: "" } });
+    const topBar = useRef(null);
+    const bottomBar = useRef(null);
+
+
+    const menuAnimation = () => {
+        let topAnimation = topBar.current;
+        let bottomAnimation = bottomBar.current;
+
+        setTimeout(() => {
+            topAnimation.classList.add("black-bar__top");
+            bottomAnimation.classList.add("black-bar__bottom");
+        }, 0)
+
+        setTimeout(() => {
+            topAnimation.classList.remove("black-bar__top");
+            bottomAnimation.classList.remove("black-bar__bottom");
+        }, 3000)
+    }
+
 
     const renderPage = (param) => {
         switch (param) {
+            case "menu":
+                return (
+                    <div className="menu">
+                        <ul>
+                            <li onClick={() => { menuAnimation(); toggleMenu('about-us') }}><a href="#">about us</a></li>
+                            <li onClick={() => { menuAnimation(); toggleMenu('vision') }}><a href="#">vision</a></li>
+                            <li onClick={() => { menuAnimation(); toggleMenu('digital') }}><a href="#">digital nfc</a></li>
+                            <li onClick={() => { menuAnimation(); toggleMenu('sponsers') }}><a href="#">sponsers</a></li>
+                            <li onClick={() => { menuAnimation(); toggleMenu('hamues') }}><a href="#">hamues plus</a></li>
+                            <li onClick={() => { menuAnimation(); toggleMenu('follow') }}><a href="#">follow</a></li>
+                            <li onClick={() => { menuAnimation(); toggleMenu('contact') }}><a href="#">contact</a></li>
+                        </ul>
+                    </div>
+                )
             case "main":
                 return (
                     <div className="hero-first-slide">
@@ -18,20 +51,6 @@ function Home() {
                         <a href="#">
                             <img src={headerLogo} alt="" width={724} />
                         </a>
-                    </div>
-                )
-            case "menu":
-                return (
-                    <div className="menu">
-                        <ul>
-                            <li onClick={() => toggleMenu('about-us')}><a href="#">about us</a></li>
-                            <li onClick={() => toggleMenu('vision')}><a href="#">vision</a></li>
-                            <li onClick={() => toggleMenu('digital')}><a href="#">digital nfc</a></li>
-                            <li onClick={() => toggleMenu('sponsers')}><a href="#">sponsers</a></li>
-                            <li onClick={() => toggleMenu('hamues')}><a href="#">hamues plus</a></li>
-                            <li onClick={() => toggleMenu('follow')}><a href="#">follow</a></li>
-                            <li onClick={() => toggleMenu('contact')}><a href="#">contact</a></li>
-                        </ul>
                     </div>
                 )
             case "about-us":
@@ -70,12 +89,12 @@ function Home() {
                         Hamues
                     </div>
                 )
-            case "follow": 
-                    return (
-                        <div className="follow">
-                            Follow
-                        </div>
-                    )
+            case "follow":
+                return (
+                    <div className="follow">
+                        Follow
+                    </div>
+                )
             case "contact":
                 return (
                     <div className="contact">
@@ -86,27 +105,29 @@ function Home() {
     }
 
     const toggleMenu = (getPage) => {
-        if(getPage === "menu"){
+        if (getPage === "menu") {
+            setPage(getPage);
             setMenuWidth({ first: { width: '30px', transition: "width .3s ease" }, second: { width: "50px", transition: "width .3s ease" }, third: { width: "70px", transition: "width .3s ease" } })
-        }else{
+        } else {
             setMenuWidth({ first: { width: '' }, second: { width: "" }, third: { width: "" } })
+            setTimeout(() => {
+                setPage(getPage);
+            }, 1500)
         }
-
-        setPage(getPage);
     }
 
     return (
         <>
             <div className="hero">
-                <div className="black-bar__top"></div>
-                <div className="black-bar__bottom"></div>
+                <div className="animation-scene-top" ref={topBar}></div>
+                <div className="animation-scene-bottom" ref={bottomBar}></div>
                 <header className="hero-header">
                     <div className="header-logo">
                         <a href="" onClick={() => toggleMenu('main')}>
                             <img src={headerLogo} width={"103px"} alt="" />
                         </a>
                     </div>
-                    <div className="header-menu" onClick={() => toggleMenu('menu')}>
+                    <div className="header-menu" onClick={() => { toggleMenu('menu') }}>
                         <span style={menuWidth.first}></span>
                         <span style={menuWidth.second}></span>
                         <span style={menuWidth.third}></span>
