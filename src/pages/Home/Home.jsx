@@ -34,8 +34,8 @@ function Home() {
         }, 3000)
 
         setTimeout(() => {
-            leftAnimation.classList.remove("animation-scene-left-line");
             rightAnimation.classList.remove("animation-scene-right-line"); 
+            leftAnimation.classList.remove("animation-scene-left-line");
         }, 5000)
     }
 

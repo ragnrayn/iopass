@@ -51,6 +51,7 @@
     background: #fff;
     position: absolute;
     top: 50%;
+    left: 60px;
     transform: translateX(-50%);
 }
 
