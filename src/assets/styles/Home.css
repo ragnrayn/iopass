@@ -237,10 +237,10 @@ footer::before{
 
 
 @keyframes barTop {
-    from{
-        top: -100%
+    from {
+        top: -100%;
     }
-    to{
+    to {
         top: 0;
     }
 }

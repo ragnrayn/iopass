@@ -1,6 +1,7 @@
 import "../../assets/styles/Home.css"
 import React, { useEffect, useRef, useState } from "react";
 import headerLogo from "../../assets/icons/iopass_header.svg";
+import { Link } from "react-router-dom";
 
 function Home() {
 
@@ -58,7 +59,7 @@ function Home() {
                         <ul>
                             <li onClick={() => { menuAnimation(); toggleMenu('about-us') }}><a href="#">about us</a></li>
                             <li onClick={() => { menuAnimation(); toggleMenu('vision') }}><a href="#">vision</a></li>
-                            <li onClick={() => { menuAnimation(); toggleMenu('digital') }}><a href="#">digital nfc</a></li>
+                            <li onClick={() => { menuAnimation(); toggleMenu('digital') }}><Link to="/nfc">digital nfc</Link></li>
                             <li onClick={() => { menuAnimation(); toggleMenu('sponsers') }}><a href="#">sponsers</a></li>
                             <li onClick={() => { menuAnimation(); toggleMenu('hamues') }}><a href="#">hamues plus</a></li>
                             <li onClick={() => { menuAnimation(); toggleMenu('follow') }}><a href="#">follow</a></li>
