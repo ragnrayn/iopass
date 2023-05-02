@@ -69,6 +69,18 @@ function Nfc() {
                     <a href="#">Buy now</a>
                 </div>
             </section>
+            <section className="nfc-six">
+                <div className="six-image">
+                    <img src={require("../../assets/images/card-footer.png")} alt="" />
+                </div>
+            </section>
+            <section className="nfc-footer">
+                <div className="footer-link">
+                    <Link to="/">
+                        <img src={headerLogo} width={"500px"} alt="" />
+                    </Link>
+                </div>
+            </section>
         </>
     )
 }
