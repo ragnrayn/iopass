@@ -1,5 +1,5 @@
 import "../../assets/styles/Home.css"
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import headerLogo from "../../assets/icons/iopass_header.svg";
 
 function Home() {
@@ -39,6 +39,16 @@ function Home() {
         }, 5000)
     }
 
+
+    useEffect(() => {
+        topBar.current.classList.add("loadTopStart");
+        bottomBar.current.classList.add("loadBottomStart");
+
+        setTimeout(() => {
+            topBar.current.classList.remove("loadTopStart");
+            bottomBar.current.classList.remove("loadBottomStart");
+        }, 2900)
+    }, [])
 
     const renderPage = (param) => {
         switch (param) {

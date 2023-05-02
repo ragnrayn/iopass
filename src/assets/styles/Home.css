@@ -55,6 +55,7 @@
     transform: translateX(-50%);
 }
 
+
 .hero-header{
     display: flex;
     justify-content: space-between;
@@ -212,6 +213,29 @@ footer::before{
     animation: barBottom 1.5s 2 alternate;
 }
 
+.loadTopStart {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #282828;
+    z-index: 10;
+    animation: loadTop 3s ease;
+}
+
+.loadBottomStart {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #282828;
+    z-index: 10;
+    animation: loadBottom 3s ease;
+}
+
+
 @keyframes barTop {
     from{
         top: -100%
@@ -245,5 +269,23 @@ footer::before{
     }
     to{
         left: 95%;
+    }
+}
+
+@keyframes loadTop {
+    from {
+        top: 0;
+    }
+    to {
+        top: -100%;
+    }
+}
+
+@keyframes loadBottom {
+    from {
+        bottom: 0;
+    }
+    to {
+        bottom: -100%;
     }
 }
