@@ -6,14 +6,17 @@ import { Link } from "react-router-dom";
 function Home() {
 
     const [page, setPage] = useState('main');
-    const [prevPage, setPrevPage] = useState('');
+    const [prevPage, setPrevPage] = useState('main');
     const [menuWidth, setMenuWidth] = useState({ first: { width: '' }, second: { width: "" }, third: { width: "" } });
+    const [isRouteEnabled, setIsRouteEnabled] = useState(false);
     const topBar = useRef(null);
     const bottomBar = useRef(null);
     const lineLeft = useRef(null);
     const lineRight = useRef(null);
 
     const menuAnimation = () => {
+        setIsRouteEnabled(false);
+
         let topAnimation = topBar.current;
         let bottomAnimation = bottomBar.current;
         let leftAnimation = lineLeft.current;
@@ -24,7 +27,7 @@ function Home() {
             bottomAnimation.classList.add("black-bar__bottom");
         }, 0)
 
-        if(page === "main"){
+        if (page === "main") {
             setTimeout(() => {
                 leftAnimation.classList.add("animation-scene-left-line");
                 rightAnimation.classList.add("animation-scene-right-line");
@@ -37,6 +40,8 @@ function Home() {
         }, 3000)
 
         setTimeout(() => {
+            setIsRouteEnabled(true);
+
             rightAnimation.classList.remove("animation-scene-right-line");
             leftAnimation.classList.remove("animation-scene-left-line");
         }, 5000)
@@ -52,6 +57,7 @@ function Home() {
             bottomBar.current.classList.remove("loadBottomStart");
 
             setPage('menu');
+            setIsRouteEnabled(true);
         }, 2900)
     }, [])
 
@@ -61,13 +67,13 @@ function Home() {
                 return (
                     <div className="menu">
                         <ul>
-                            <li onClick={() => { menuAnimation(); toggleMenu('about-us') }}><a href="#">about us</a></li>
-                            <li onClick={() => { menuAnimation(); toggleMenu('vision') }}><a href="#">vision</a></li>
-                            <li onClick={() => { menuAnimation(); toggleMenu('digital') }}><Link to="/nfc">digital nfc</Link></li>
-                            <li onClick={() => { menuAnimation(); toggleMenu('sponsers') }}><a href="#">sponsers</a></li>
-                            <li onClick={() => { menuAnimation(); toggleMenu('hamues') }}><a href="#">hamues plus</a></li>
-                            <li onClick={() => { menuAnimation(); toggleMenu('follow') }}><a href="#">follow</a></li>
-                            <li onClick={() => { menuAnimation(); toggleMenu('contact') }}><a href="#">contact</a></li>
+                            <li onClick={() => { menuAnimation(); routeTo('about-us') }}><a href="#">about us</a></li>
+                            <li onClick={() => { menuAnimation(); routeTo('vision') }}><a href="#">vision</a></li>
+                            <li onClick={() => { menuAnimation(); routeTo('digital') }}><Link to="/nfc">digital nfc</Link></li>
+                            <li onClick={() => { menuAnimation(); routeTo('sponsers') }}><a href="#">sponsers</a></li>
+                            <li onClick={() => { menuAnimation(); routeTo('hamues') }}><a href="#">hamues plus</a></li>
+                            <li onClick={() => { menuAnimation(); routeTo('follow') }}><a href="#">follow</a></li>
+                            <li onClick={() => { menuAnimation(); routeTo('contact') }}><a href="#">contact</a></li>
                         </ul>
                     </div>
                 )
@@ -133,16 +139,28 @@ function Home() {
         }
     }
 
+    const routeTo = (page) => {
+        setTimeout(() => {
+            setPage(page);
+        }, 1500);
+    }
+
     const toggleMenu = (getPage) => {
+        if (!isRouteEnabled) return;
+
         if (getPage === "menu" && page !== "menu") {
             setPrevPage(page);
 
             setPage(getPage);
             setMenuWidth({ first: { width: '30px' }, second: { width: "50px" }, third: { width: "70px" } })
         } else {
+            setIsRouteEnabled(false);
+
             setMenuWidth({ first: { width: '' }, second: { width: "" }, third: { width: "" } })
             setTimeout(() => {
-                setPage(getPage);
+                setIsRouteEnabled(true);
+                
+                setPage(prevPage);
             }, 1500)
         }
     }
