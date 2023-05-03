@@ -71,6 +71,7 @@
 
 .header-menu span{
     display: block;
+    transition: width .3s ease;
 }
 
 .header-menu span {

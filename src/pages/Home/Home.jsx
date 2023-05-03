@@ -134,7 +134,7 @@ function Home() {
             setPrevPage(page);
 
             setPage(getPage);
-            setMenuWidth({ first: { width: '30px', transition: "width .3s ease" }, second: { width: "50px", transition: "width .3s ease" }, third: { width: "70px", transition: "width .3s ease" } })
+            setMenuWidth({ first: { width: '30px' }, second: { width: "50px" }, third: { width: "70px" } })
         } else {
             setMenuWidth({ first: { width: '' }, second: { width: "" }, third: { width: "" } })
             setPage(prevPage);
