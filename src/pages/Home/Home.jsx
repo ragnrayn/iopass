@@ -48,6 +48,8 @@ function Home() {
         setTimeout(() => {
             topBar.current.classList.remove("loadTopStart");
             bottomBar.current.classList.remove("loadBottomStart");
+
+            setPage('menu');
         }, 2900)
     }, [])
 
