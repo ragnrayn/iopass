@@ -75,10 +75,7 @@
 .hero-footer::before{
     content: "";
     position: absolute;
-    bottom: -30px;
     left: 50%;
-    z-index: 999;
-    transform: translateX(-50%);
     background: #fff;
     width: 1px;
     height: 100px;
