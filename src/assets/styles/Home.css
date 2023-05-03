@@ -9,7 +9,6 @@
     background: #000D0F;
     padding: 60px;
     position: relative;
-
     overflow: hidden;
 }
 
@@ -42,8 +41,9 @@
     background: #fff;
     position: absolute;
     top: 50%;
-    left: 95%;
-    transform: translateX(-50%);
+    right: calc(50% - 150px);
+
+    animation: rightLine .75s ease-in forwards;
 }
 
 
@@ -53,8 +53,9 @@
     background: #fff;
     position: absolute;
     top: 50%;
-    left: 60px;
-    transform: translateX(-50%);
+    left: calc(50% - 150px);
+
+    animation: leftLine .75s ease-in forwards;
 }
 
 
@@ -258,20 +259,14 @@ footer::before{
 }
 
 @keyframes leftLine {
-    from {
-        left: 50%
-    }
     to{
-        left: 50px;
+        left: 0;
     }
 }
 
 @keyframes rightLine {
-    from {
-        left: 50%;
-    }
     to{
-        left: 95%;
+        right: 0;
     }
 }
 
