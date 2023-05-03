@@ -95,7 +95,7 @@
     width: 100%;
     height: 900px;
     background: #000;
-    position: relative;
+    position: sticky;
 }
 
 .third-image{

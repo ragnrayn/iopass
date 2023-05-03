@@ -2,11 +2,17 @@ import React from "react";
 import "../../assets/styles/Nfc.css";
 import headerLogo from "../../assets/icons/iopass_header.svg";
 import { Link } from "react-router-dom";
+import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 
 function Nfc() {
+
+    const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
+    const FadeUp = batch(Fade(), Move(), Sticky());
+
     return (
         <>
-            <div className="nfc">
+           <div className="main">
+           <section className="nfc">
                 <section className="nfc-first">
                     <div className="line-left"></div>
                     <div className="line-right"></div>
@@ -36,7 +42,7 @@ function Nfc() {
                         </div>
                     </div>
                 </section>
-            </div>
+            </section>
             <section className="nfc-second">
                 <img src={require("../../assets/images/card-2.png")} alt="" />
             </section>
@@ -81,6 +87,7 @@ function Nfc() {
                     </Link>
                 </div>
             </section>
+           </div>
         </>
     )
 }
