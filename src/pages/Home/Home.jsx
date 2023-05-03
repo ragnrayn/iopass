@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 function Home() {
 
     const [page, setPage] = useState('main');
+    const [prevPage, setPrevPage] = useState('');
     const [menuWidth, setMenuWidth] = useState({ first: { width: '' }, second: { width: "" }, third: { width: "" } });
     const topBar = useRef(null);
     const bottomBar = useRef(null);
     const lineLeft = useRef(null);
     const lineRight = useRef(null);
-
 
     const menuAnimation = () => {
         let topAnimation = topBar.current;
@@ -35,7 +35,7 @@ function Home() {
         }, 3000)
 
         setTimeout(() => {
-            rightAnimation.classList.remove("animation-scene-right-line"); 
+            rightAnimation.classList.remove("animation-scene-right-line");
             leftAnimation.classList.remove("animation-scene-left-line");
         }, 5000)
     }
@@ -130,14 +130,14 @@ function Home() {
     }
 
     const toggleMenu = (getPage) => {
-        if (getPage === "menu") {
+        if (getPage === "menu" && page !== "menu") {
+            setPrevPage(page);
+
             setPage(getPage);
             setMenuWidth({ first: { width: '30px', transition: "width .3s ease" }, second: { width: "50px", transition: "width .3s ease" }, third: { width: "70px", transition: "width .3s ease" } })
         } else {
             setMenuWidth({ first: { width: '' }, second: { width: "" }, third: { width: "" } })
-            setTimeout(() => {
-                setPage(getPage);
-            }, 1500)
+            setPage(prevPage);
         }
     }
 
