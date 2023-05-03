@@ -102,6 +102,8 @@
     flex-direction: column;
     height: 80%;
     position: relative;
+
+    animation: appearance 2.5s ease-in forwards;
 }
 
 .first-slide__title{
@@ -285,5 +287,14 @@ footer::before{
     }
     to {
         bottom: -100%;
+    }
+}
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
