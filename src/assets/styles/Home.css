@@ -9,6 +9,8 @@
     background: #000D0F;
     padding: 60px;
     position: relative;
+
+    overflow: hidden;
 }
 
 .animation-scene-left-line{
