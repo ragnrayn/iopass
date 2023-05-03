@@ -24,10 +24,12 @@ function Home() {
             bottomAnimation.classList.add("black-bar__bottom");
         }, 0)
 
-        setTimeout(() => {
-            leftAnimation.classList.add("animation-scene-left-line");
-            rightAnimation.classList.add("animation-scene-right-line");
-        }, 2000)
+        if(page === "main"){
+            setTimeout(() => {
+                leftAnimation.classList.add("animation-scene-left-line");
+                rightAnimation.classList.add("animation-scene-right-line");
+            }, 2000)
+        }
 
         setTimeout(() => {
             topAnimation.classList.remove("black-bar__top");
@@ -139,7 +141,9 @@ function Home() {
             setMenuWidth({ first: { width: '30px' }, second: { width: "50px" }, third: { width: "70px" } })
         } else {
             setMenuWidth({ first: { width: '' }, second: { width: "" }, third: { width: "" } })
-            setPage(prevPage);
+            setTimeout(() => {
+                setPage(getPage);
+            }, 1500)
         }
     }
 
