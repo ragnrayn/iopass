@@ -13,6 +13,7 @@ function Home() {
     const bottomBar = useRef(null);
     const lineLeft = useRef(null);
     const lineRight = useRef(null);
+    const loaderRef = useRef(null);
 
     const menuAnimation = () => {
         setIsRouteEnabled(false);
@@ -22,10 +23,9 @@ function Home() {
         let leftAnimation = lineLeft.current;
         let rightAnimation = lineRight.current;
 
-        setTimeout(() => {
-            topAnimation.classList.add("black-bar__top");
-            bottomAnimation.classList.add("black-bar__bottom");
-        }, 0)
+        topAnimation.classList.add("black-bar__top");
+        bottomAnimation.classList.add("black-bar__bottom");
+        loaderRef.current.classList.add("animation-loader-scene");
 
         if (page === "main") {
             setTimeout(() => {
@@ -37,7 +37,8 @@ function Home() {
         setTimeout(() => {
             topAnimation.classList.remove("black-bar__top");
             bottomAnimation.classList.remove("black-bar__bottom");
-        }, 3000)
+            loaderRef.current.classList.remove("animation-loader-scene");
+        }, 6500)
 
         setTimeout(() => {
             setIsRouteEnabled(true);
@@ -159,7 +160,7 @@ function Home() {
             setMenuWidth({ first: { width: '' }, second: { width: "" }, third: { width: "" } })
             setTimeout(() => {
                 setIsRouteEnabled(true);
-                
+
                 setPage(prevPage);
             }, 1500)
         }
@@ -168,6 +169,9 @@ function Home() {
     return (
         <>
             <div className="hero">
+                <div className="animation-loader" ref={loaderRef}>
+                    <img src={headerLogo} alt="" width={724} />
+                </div>
                 <div className="animation-scene-top" ref={topBar}></div>
                 <div className="animation-scene-bottom" ref={bottomBar}></div>
                 <div className="animation-line-first" ref={lineLeft}></div>
