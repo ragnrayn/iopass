@@ -14,6 +14,7 @@ function Home() {
     const lineLeft = useRef(null);
     const lineRight = useRef(null);
     const loaderRef = useRef(null);
+    const [wobble, setWobble] = useState(0);
 
     const menuAnimation = () => {
         setIsRouteEnabled(false);
@@ -66,7 +67,7 @@ function Home() {
         switch (param) {
             case "menu":
                 return (
-                    <div className="menu">
+                    <div className="menu" wobble={wobble}>
                         <ul>
                             <li onClick={() => { menuAnimation(); routeTo('about-us') }}><a href="#">about us</a></li>
                             <li onClick={() => { menuAnimation(); routeTo('vision') }}><a href="#">vision</a></li>
@@ -182,7 +183,7 @@ function Home() {
                             <img src={headerLogo} width={"103px"} alt="" />
                         </a>
                     </div>
-                    <div className="header-menu" onClick={() => { toggleMenu('menu') }}>
+                    <div className="header-menu" onClick={() => { toggleMenu('menu'); wobble === 0 ? setWobble(1) : setWobble(0) }}>
                         <span style={menuWidth.first}></span>
                         <span style={menuWidth.second}></span>
                         <span style={menuWidth.third}></span>

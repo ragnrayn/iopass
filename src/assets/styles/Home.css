@@ -127,6 +127,12 @@
 
 .menu{
     margin-top: 60px;
+
+    animation: appearance 2.5s ease-in forwards;
+}
+
+.menu[wobble='1']{
+    animation: fadeOut 1.5s;
 }
 
 .menu ul {
@@ -323,4 +329,9 @@ footer::before{
         opacity: 1;
         z-index: 127381293712;
     }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
