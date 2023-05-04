@@ -26,7 +26,9 @@ function Home() {
 
         topAnimation.classList.add("black-bar__top");
         bottomAnimation.classList.add("black-bar__bottom");
-        loaderRef.current.classList.add("animation-loader-scene");
+
+        leftAnimation.classList.add("animation-line-first-animation-reverse");
+        rightAnimation.classList.add("animation-line-second-animation-reverse");
 
         if (page === "main") {
             setTimeout(() => {
@@ -36,14 +38,32 @@ function Home() {
         }
 
         setTimeout(() => {
+            loaderRef.current.classList.add("animation-loader-scene");
+        }, 500);
+
+        setTimeout(() => {
+            topAnimation.classList.add("black-bar__top");
+            bottomAnimation.classList.add("black-bar__bottom");
+        }, 1500)
+
+        lineLeft.current.classList.remove("animation-line-first-animation");
+        lineRight.current.classList.remove("animation-line-second-animation");
+
+        setTimeout(() => {
             topAnimation.classList.remove("black-bar__top");
             bottomAnimation.classList.remove("black-bar__bottom");
-            loaderRef.current.classList.remove("animation-loader-scene");
+
+            leftAnimation.classList.remove("animation-line-first-animation-reverse");
+            rightAnimation.classList.remove("animation-line-second-animation-reverse");
+
+            lineLeft.current.classList.add("animation-line-first-animation");
+            lineRight.current.classList.add("animation-line-second-animation");
         }, 6500)
 
         setTimeout(() => {
             setIsRouteEnabled(true);
 
+            loaderRef.current.classList.remove("animation-loader-scene");
             rightAnimation.classList.remove("animation-scene-right-line");
             leftAnimation.classList.remove("animation-scene-left-line");
         }, 5000)
@@ -51,6 +71,9 @@ function Home() {
 
 
     useEffect(() => {
+        lineLeft.current.classList.add("animation-line-first-animation");
+        lineRight.current.classList.add("animation-line-second-animation");
+
         topBar.current.classList.add("loadTopStart");
         bottomBar.current.classList.add("loadBottomStart");
 
@@ -144,7 +167,7 @@ function Home() {
     const routeTo = (page) => {
         setTimeout(() => {
             setPage(page);
-        }, 1500);
+        }, 3000);
     }
 
     const toggleMenu = (getPage) => {

@@ -36,26 +36,36 @@
 }
 
 .animation-line-first{
-    width: 150px;
+    width: 50%;
     height: 1px;
     background: #fff;
     position: absolute;
     top: 50%;
+    left: 0;
     right: calc(50% - 150px);
 
-    animation: rightLine .75s ease-in forwards;
+    transition-duration: 1.5s;
+}
+
+.animation-line-first-animation{
+    width: 150px;
 }
 
 
 .animation-line-second{
-    width: 150px;
+    width: 50%;
     height: 1px;
     background: #fff;
     position: absolute;
     top: 50%;
-    left: calc(50% - 150px);
+    right: 0;
+    left: 50%;
 
-    animation: leftLine .75s ease-in forwards;
+    transition-duration: 1.5s;
+}
+
+.animation-line-second-animation{
+    left: calc(100% - 150px);
 }
 
 
@@ -273,7 +283,7 @@ footer::before{
 
     border-radius: 50%;
     position: absolute;
-    animation: rotate 1s linear infinite
+    animation: rotate 1s linear infinite;
 }
 
 .spinner::before {
