@@ -171,7 +171,8 @@ function Home() {
         <>
             <div className="hero">
                 <div className="animation-loader" ref={loaderRef}>
-                    <img src={headerLogo} alt="" width={724} />
+                    <div className="spinner"></div>
+                    <img src={headerLogo} alt="" />
                 </div>
                 <div className="animation-scene-top" ref={topBar}></div>
                 <div className="animation-scene-bottom" ref={bottomBar}></div>
