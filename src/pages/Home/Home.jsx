@@ -1,4 +1,4 @@
-import "../../assets/styles/Home.css"
+import "../../assets/styles/Home/index.css"
 import React, { useEffect, useRef, useState } from "react";
 import headerLogo from "../../assets/icons/iopass_header.svg";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ function Home() {
     const lineLeft = useRef(null);
     const lineRight = useRef(null);
     const loaderRef = useRef(null);
+    const menuRef = useRef(null);
     const [wobble, setWobble] = useState(0);
 
     const menuAnimation = () => {
@@ -109,7 +110,7 @@ function Home() {
                             digtal bussiness card and video and music now her
                         </p>
                         <a href="#">
-                            <img src={headerLogo} alt="" width={724} />
+                            <img src={headerLogo} alt="" />
                         </a>
                     </div>
                 )
@@ -177,11 +178,14 @@ function Home() {
             setPrevPage(page);
 
             setPage(getPage);
-            setMenuWidth({ first: { width: '30px' }, second: { width: "50px" }, third: { width: "70px" } })
+            // setMenuWidth({ first: { width: '30px' }, second: { width: "50px" }, third: { width: "70px" } })
+
+            menuRef.current.classList.add('active');
         } else {
             setIsRouteEnabled(false);
 
-            setMenuWidth({ first: { width: '' }, second: { width: "" }, third: { width: "" } })
+            // setMenuWidth({ first: { width: '' }, second: { width: "" }, third: { width: "" } })
+            menuRef.current.classList.remove('active');
             setTimeout(() => {
                 setIsRouteEnabled(true);
 
@@ -207,7 +211,7 @@ function Home() {
                             <img src={headerLogo} width={"103px"} alt="" />
                         </a>
                     </div>
-                    <div className="header-menu" onClick={() => { toggleMenu('menu'); wobble === 0 ? setWobble(1) : setWobble(0) }}>
+                    <div className="header-menu" onClick={() => { toggleMenu('menu'); wobble === 0 ? setWobble(1) : setWobble(0) }} ref={menuRef}>
                         <span style={menuWidth.first}></span>
                         <span style={menuWidth.second}></span>
                         <span style={menuWidth.third}></span>
@@ -218,10 +222,10 @@ function Home() {
                 </div>
                 <footer className="hero-footer">
                     <div className="footer-reserved">
-                        <span>all copy right |</span> resived
+                        <span>all copy right |</span> <span>resived</span>
                     </div>
                     <div className="footer-name">
-                        <span>disclaimer |</span> adan alafefe
+                        <span>disclaimer |</span> <span>adan alafefe</span>
                     </div>
                 </footer>
             </div>

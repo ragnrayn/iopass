@@ -16,7 +16,7 @@
     z-index: 5;
 }
 
-.header-menu span {
+/* .header-menu span {
     display: block;
 }
 
@@ -24,7 +24,6 @@
     width: 60px;
     height: 1px;
     background: #fff;
-    margin-top: 10px
 }
 
 .header-menu span:first-child {
@@ -38,7 +37,7 @@
     width: 41px;
     height: 1px;
     background: #fff;
-}
+} */
 
 .top-nfc {
     position: absolute;
@@ -72,14 +71,14 @@
 
 .reserved-index{z-index: 9999;}
 
-.hero-footer::before{
+/* .hero-footer::before{
     content: "";
     position: absolute;
     left: 50%;
     background: #fff;
     width: 1px;
     height: 100px;
-}
+} */
 
 .nfc-second{
     width: 100%;
