@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'Gtec';
+  src: local('gtec'), url('../../fonts/gtec.ttf') format('truetype');
+}
+
+@media (max-width: 568px) {
+  * {
+    font-size: 20px;
+  }
+
+  .nfc {
+    height: auto;
+  }
+
+  .nfc .nfc-first .nfc-top .top-nfc {
+    position: static;
+  }
+
+  .nfc-second > img {
+    width: 550px;
+  }
+
+  .nfc-third > .third-text {
+    position: static;
+    width: auto;
+    margin: 0 42px;
+    text-align: center;
+  }
+
+  .nfc-third > .third-image > img {
+    position: relative;
+    right: -270px;
+  }
+
+  .nfc-four,
+  .nfc-five {
+    height: auto;
+    padding: 60px 0;
+  }
+
+  .nfc-four > .four-text,
+  .nfc-five > .five-text {
+    position: static;
+    margin: 0px 42px 60px;
+    width: 343px;
+  }
+
+  .nfc-five .five-image {
+    position: static;
+  }
+
+  .nfc-five .five-image > img {
+    width: 550px;
+  }
+
+  .top-nfc {
+    margin-top: 20px;
+  }
+
+  .top-nfc > img {
+    width: 430px;
+  }
+
+  .nfc-first > .line-left,
+  .nfc-first > .line-right {
+    display: none;
+  }
+
+  .hero-footer {
+    padding: 15px;
+  }
+
+  .buy-now__text {
+    width: auto;
+    padding-left: 0;
+    margin: 0 42px 60px;
+  }
+
+  .buy-now__btn {
+    width: 218px;
+    margin: 0 auto;
+    background: #eeecf2;
+    border: 18px solid green;
+    border-radius: 84px;
+
+    font-size: 30px;
+  }
+
+  .buy-now__btn > a {
+    background: none;
+    text-decoration: none;
+
+    padding: 20px;
+    color: #862020;
+
+    font-family: 'Gtec';
+  }
+
+  .nfc-footer {
+    display: none;
+  }
+}
