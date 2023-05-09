@@ -26,6 +26,7 @@ function Home() {
         let bottomAnimation = bottomBar.current;
         let leftAnimation = lineLeft.current;
         let rightAnimation = lineRight.current;
+        let loaderRefAnimation = loaderRef.current;
 
         topAnimation.classList.add("black-bar__top");
         bottomAnimation.classList.add("black-bar__bottom");
@@ -41,7 +42,7 @@ function Home() {
         }
 
         setTimeout(() => {
-            loaderRef.current.classList.add("animation-loader-scene");
+            loaderRefAnimation.classList.add("animation-loader-scene");
         }, 500);
 
         setTimeout(() => {
@@ -59,14 +60,14 @@ function Home() {
             leftAnimation.classList.remove("animation-line-first-animation-reverse");
             rightAnimation.classList.remove("animation-line-second-animation-reverse");
 
-            lineLeft.current.classList.add("animation-line-first-animation");
-            lineRight.current.classList.add("animation-line-second-animation");
+            leftAnimation.classList.add("animation-line-first-animation");
+            rightAnimation.classList.add("animation-line-second-animation");
         }, 6500)
 
         setTimeout(() => {
             setIsRouteEnabled(true);
 
-            loaderRef.current.classList.remove("animation-loader-scene");
+            loaderRefAnimation.classList.remove("animation-loader-scene");
             rightAnimation.classList.remove("animation-scene-right-line");
             leftAnimation.classList.remove("animation-scene-left-line");
         }, 5000)
