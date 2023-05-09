@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import headerLogo from "../../assets/icons/iopass_header.svg";
 import { Link } from "react-router-dom";
 
+import backgroundVideo from '../../assets/videos/background.mp4';
+
 function Home() {
 
     const [page, setPage] = useState('main');
@@ -197,6 +199,8 @@ function Home() {
     return (
         <>
             <div className="hero">
+                <video src={backgroundVideo} autoPlay muted loop className="bg_video"></video>
+
                 <div className="animation-loader" ref={loaderRef}>
                     <div className="spinner"></div>
                     <img src={headerLogo} alt="" />
