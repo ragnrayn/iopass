@@ -14,12 +14,17 @@
   position: absolute;
   top: calc(50% - 50vh);
   left: calc(50% - 50vw);
+
+  z-index: -1;
+}
+
+.header-logo {
+  animation: rotate 1.4s linear 1 forwards;
 }
 
 .hero {
   width: 100%;
   height: 100vh;
-  background: #000d0f;
   padding: 60px;
   position: relative;
   overflow: hidden;
@@ -307,6 +312,10 @@ footer::before {
 
   background-color: #c3c3c3;
   z-index: 0;
+}
+
+.animation-loader > img {
+  animation: rotate 1.5s linear infinite;
 }
 
 .spinner {

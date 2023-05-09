@@ -1,6 +1,7 @@
 import "../../assets/styles/Home/index.css"
 import React, { useEffect, useRef, useState } from "react";
-import headerLogo from "../../assets/icons/iopass_header.svg";
+import headerLogo from "../../assets/icons/iopass_header.png";
+import heroLogo from "../../assets/icons/iopass_hero.svg";
 import { Link } from "react-router-dom";
 
 import backgroundVideo from '../../assets/videos/background.mp4';
@@ -113,7 +114,7 @@ function Home() {
                             digtal bussiness card and video and music now her
                         </p>
                         <a href="#">
-                            <img src={headerLogo} alt="" />
+                            <img src={heroLogo} alt="" />
                         </a>
                     </div>
                 )

@@ -1,6 +1,6 @@
 import React from "react";
 import "../../assets/styles/Nfc/index.css";
-import headerLogo from "../../assets/icons/iopass_header.svg";
+import headerLogo from "../../assets/icons/iopass_header.png";
 import { Link } from "react-router-dom";
 import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 
