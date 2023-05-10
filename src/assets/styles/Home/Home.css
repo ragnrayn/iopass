@@ -223,12 +223,18 @@ footer {
 footer::before {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -100%;
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
   width: 1px;
   height: 100px;
+
+  transition: all 2.5s;
+}
+
+footer.active::before {
+  bottom: 0;
 }
 
 .footer-name {

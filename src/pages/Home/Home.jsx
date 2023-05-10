@@ -18,6 +18,7 @@ function Home() {
     const lineRight = useRef(null);
     const loaderRef = useRef(null);
     const menuRef = useRef(null);
+    const footerRef = useRef(null);
     const [wobble, setWobble] = useState(0);
 
     const menuAnimation = () => {
@@ -28,12 +29,15 @@ function Home() {
         let leftAnimation = lineLeft.current;
         let rightAnimation = lineRight.current;
         let loaderRefAnimation = loaderRef.current;
+        let footerAnimation = footerRef.current;
 
         topAnimation.classList.add("black-bar__top");
         bottomAnimation.classList.add("black-bar__bottom");
 
         leftAnimation.classList.add("animation-line-first-animation-reverse");
         rightAnimation.classList.add("animation-line-second-animation-reverse");
+
+        footerAnimation.classList.remove('active');
 
         if (page === "main") {
             setTimeout(() => {
@@ -57,6 +61,7 @@ function Home() {
         setTimeout(() => {
             topAnimation.classList.remove("black-bar__top");
             bottomAnimation.classList.remove("black-bar__bottom");
+            footerAnimation.classList.add('active');
 
             leftAnimation.classList.remove("animation-line-first-animation-reverse");
             rightAnimation.classList.remove("animation-line-second-animation-reverse");
@@ -81,6 +86,8 @@ function Home() {
 
         topBar.current.classList.add("loadTopStart");
         bottomBar.current.classList.add("loadBottomStart");
+
+        footerRef.current.classList.add('active');
 
         setTimeout(() => {
             topBar.current.classList.remove("loadTopStart");
@@ -226,7 +233,7 @@ function Home() {
                 <div className="hero-content">
                     {renderPage(page)}
                 </div>
-                <footer className="hero-footer">
+                <footer className="hero-footer" ref={footerRef}>
                     <div className="footer-reserved">
                         <span>all copy right |</span> <span>resived</span>
                     </div>
