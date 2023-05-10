@@ -16,10 +16,10 @@ function Nfc() {
                     <section className="nfc-first">
                         <div className="line-left"></div>
                         <div className="line-right"></div>
-                        <div className="nfc-header">
-                            <div className="logo">
+                        <div className="hero-header">
+                            <div className="header-logo">
                                 <Link to="/">
-                                    <img src={headerLogo} alt="" />
+                                    <img src={headerLogo} width={"103px"} alt="" />
                                 </Link>
                             </div>
                             <div className="header-menu">
