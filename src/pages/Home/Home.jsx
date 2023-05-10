@@ -30,6 +30,7 @@ function Home() {
         let rightAnimation = lineRight.current;
         let loaderRefAnimation = loaderRef.current;
         let footerAnimation = footerRef.current;
+        let menuAnimation = menuRef.current;
 
         topAnimation.classList.add("black-bar__top");
         bottomAnimation.classList.add("black-bar__bottom");
@@ -68,6 +69,8 @@ function Home() {
 
             leftAnimation.classList.add("animation-line-first-animation");
             rightAnimation.classList.add("animation-line-second-animation");
+
+            menuAnimation.classList.remove('active');
         }, 6500)
 
         setTimeout(() => {
@@ -92,6 +95,8 @@ function Home() {
         setTimeout(() => {
             topBar.current.classList.remove("loadTopStart");
             bottomBar.current.classList.remove("loadBottomStart");
+
+            menuRef.current.classList.add('active');
 
             setPage('menu');
             setIsRouteEnabled(true);

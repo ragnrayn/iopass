@@ -100,7 +100,10 @@
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+
+  width: 45px;
+  height: 45px;
 
   position: relative;
   z-index: 2;
@@ -109,6 +112,8 @@
 .header-menu span {
   display: block;
 
+  width: 100%;
+
   height: 1px;
   background: #fff;
 
@@ -116,6 +121,28 @@
 }
 
 .header-menu span:nth-child(1) {
+  transform-origin: 100% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+.header-menu span:nth-child(2) {
+  transition: transform 0.2s ease-in-out;
+}
+.header-menu span:nth-child(3) {
+  transform-origin: 100% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.header-menu.active span:nth-child(1) {
+  transform: rotate(-45deg);
+}
+.header-menu.active span:nth-child(2) {
+  transform: scaleY(0);
+}
+.header-menu.active span:nth-child(3) {
+  transform: rotate(45deg);
+}
+
+/* .header-menu span:nth-child(1) {
   width: 30px;
 }
 
@@ -137,7 +164,7 @@
 
 .header-menu.active span:nth-child(3) {
   width: 70px;
-}
+} */
 
 .hero-content {
   display: flex;
