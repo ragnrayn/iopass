@@ -1,5 +1,11 @@
-.main {
-  overflow: hidden;
+.main > section {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  background: #000;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .nfc {

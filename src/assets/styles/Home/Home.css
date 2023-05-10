@@ -5,6 +5,10 @@
   src: local('gtec'), url('../../fonts/gtec.ttf') format('truetype');
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .bg_video {
   pointer-events: none;
 

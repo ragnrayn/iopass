@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "../../assets/styles/Nfc/index.css";
 import headerLogo from "../../assets/icons/iopass_header.png";
 import { Link } from "react-router-dom";
@@ -21,67 +21,25 @@ function Nfc() {
     let scrolls = [];
 
     const handleScroll = (event) => {
-        scrolls = [0, secondSectionRef.current.offsetTop, thirdSectionRef.current.offsetTop, fourthSectionRef.current.offsetTop, fifthSectionRef.current.offsetTop, buySectionRef.current.offsetTop, sixthSectionRef.current.offsetTop, footerSectionRef.current.offsetTop];
-        // if (scrolls[currentPage] !== window.pageYOffset) {
-        //     wheelDirection = null;
+        event.preventDefault();
 
-        //     isScrollingActive = false;
-        //     return;
-        // }
+        if (!scrolls.length)
+            scrolls = [0, secondSectionRef.current.offsetTop, thirdSectionRef.current.offsetTop, fourthSectionRef.current.offsetTop, fifthSectionRef.current.offsetTop, buySectionRef.current.offsetTop, sixthSectionRef.current.offsetTop, footerSectionRef.current.offsetTop];
         if (isScrollingActive) return;
         isScrollingActive = true;
 
         setTimeout(() => {
             isScrollingActive = false;
-        }, 1250);
-
-        // if (isScrollingActive) return;
-
-        // new Promise((resolve, reject) => {
-        //     setTimeout(() => {
-        //         resolve('foo');
-        //     }, 300);
-        // })
-
-        // if (currentPage == 0) {
-        //     window.scrollTo({ top: 0 });
-        // }
+        }, 750);
 
         event.deltaY > 0 ? currentPage < scrolls.length - 1 && currentPage++ : currentPage > 0 && currentPage--;
-        console.log(currentPage, scrolls[currentPage]);
 
         window.scrollTo({ top: scrolls[currentPage] });
-
-        // if (event.deltaY > 0 && wheelDirection != 'down') {
-        //     currentPage++;
-        //     window.scrollTo({ top: scrolls[currentPage] });
-
-        //     console.log('down', currentPage, scrolls[currentPage]);
-        //     wheelDirection = 'down';
-
-        //     isScrollingActive = true;
-        // }
-        // else if (event.deltaY < 0 && wheelDirection != 'up') {
-        //     currentPage--;
-        //     window.scrollTo({ top: scrolls[currentPage] })
-
-        //     console.log('up', currentPage, scrolls[currentPage]);
-        //     wheelDirection = 'up';
-
-        //     isScrollingActive = true;
-        // }
-
-        // if (scrolls[currentPage] === window.pageYOffset) {
-        //     wheelDirection = null;
-
-        //     isScrollingActive = false;
-        //     return;
-        // }
     };
 
     useEffect(() => {
         window.scrollTo({ top: 0 });
-        window.addEventListener('wheel', handleScroll);
+        window.addEventListener('wheel', handleScroll, { passive: false });
     }, []);
 
     const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
